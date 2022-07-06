@@ -20,20 +20,20 @@ public class PostController {
     @PostMapping("/api/posts")//게시물 작성
     public Post createPost(@RequestBody PostRequestDto requestDto){
         Post post= new Post(requestDto);
-        return postRepository.save(post);//ok
+        return postRepository.save(post);
     }
 
     @GetMapping("/api/posts")//전체 게시물 조회
     public List<Post> readPost(){
-        return postRepository.findAllByOrderByModifiedAtDesc();//?
+        return postRepository.findAllByOrderByModifiedAtDesc();
     }
 
-    @GetMapping("/posts/{id}")//게시물 조회
+    @GetMapping("/api/posts/{id}")//id 게시물 조회
     public Optional<Post> readPost(@PathVariable Long id){
         return postRepository.findById(id);
     }
 
-    //비밀번호랑 비교해서 맞으면 삭제 & 수정이 가능하도록 해야함함
+    //비밀번호랑 비교해서 맞으면 삭제 & 수정이 가능하도록 해야함
    @DeleteMapping("/api/posts/{id}")//게시물 삭제
     public Long deletePost(@PathVariable Long id, @RequestBody PostRequestDto requestDto ){
        Optional<Post> post=postRepository.findById(id);
@@ -47,7 +47,7 @@ public class PostController {
        return id;
     }
 
-    @PutMapping("/api/posts/{id}")
+    @PutMapping("/api/posts/{id}")//게시물 수정
     public Long updateMemo(@PathVariable Long id, @RequestBody PostRequestDto requestDto) {
         Optional<Post> post = postRepository.findById(id);
         if (post.isPresent()) {
