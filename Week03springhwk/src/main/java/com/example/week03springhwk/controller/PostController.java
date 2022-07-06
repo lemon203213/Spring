@@ -20,12 +20,12 @@ public class PostController {
     @PostMapping("/api/posts")//게시물 작성
     public Post createPost(@RequestBody PostRequestDto requestDto){
         Post post= new Post(requestDto);
-        return postRepository.save(post);//ok
+        return postRepository.save(post);
     }
 
     @GetMapping("/api/posts")//전체 게시물 조회
     public List<Post> readPost(){
-        return postRepository.findAllByOrderByModifiedAtDesc();//?
+        return postRepository.findAllByOrderByModifiedAtDesc();
     }
 
     @GetMapping("/api/posts/{id}")//전체 게시물 조회
