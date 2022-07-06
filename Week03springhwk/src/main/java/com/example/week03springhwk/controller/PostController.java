@@ -28,7 +28,7 @@ public class PostController {
         return postRepository.findAllByOrderByModifiedAtDesc();//?
     }
 
-    @GetMapping("/posts/{id}")//게시물 조회
+    @GetMapping("/api/posts/{id}")//전체 게시물 조회
     public Optional<Post> readPost(@PathVariable Long id){
         return postRepository.findById(id);
     }
