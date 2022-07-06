@@ -28,12 +28,12 @@ public class PostController {
         return postRepository.findAllByOrderByModifiedAtDesc();
     }
 
-    @GetMapping("/api/posts/{id}")//전체 게시물 조회
+    @GetMapping("/api/posts/{id}")//id 게시물 조회
     public Optional<Post> readPost(@PathVariable Long id){
         return postRepository.findById(id);
     }
 
-    //비밀번호랑 비교해서 맞으면 삭제 & 수정이 가능하도록 해야함함
+    //비밀번호랑 비교해서 맞으면 삭제 & 수정이 가능하도록 해야함
    @DeleteMapping("/api/posts/{id}")//게시물 삭제
     public Long deletePost(@PathVariable Long id, @RequestBody PostRequestDto requestDto ){
        Optional<Post> post=postRepository.findById(id);
