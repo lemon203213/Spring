@@ -21,6 +21,7 @@ public abstract class Timestamped {//abstract>>추상 직접구현이 안 되고
     @CreatedDate // 생성일자임을 나타냅니다.
     @JsonFormat(shape = JsonFormat.Shape.STRING, pattern = "yyyy.MM.dd HH:mm:ss", timezone = "Asia/Seoul")
     @DateTimeFormat(pattern = "yyyy.MM.dd HH:mm:ss")
+    @JsonIgnore
     private LocalDateTime createdAt; //LocalDateTime시간을 나타내는 자료형중 하나
 
     @LastModifiedDate // 마지막 수정일자임을 나타냅니다.
